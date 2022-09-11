@@ -1,0 +1,199 @@
+*,::after,::before{box-sizing:border-box}ol[class],ul[class]{padding:0;list-style:none}blockquote,body,dd,dl,figcaption,figure,h1,h2,h3,h4,li,ol[class],p,ul[class]{margin:0}body{min-height:100vh;scroll-behavior:smooth;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){text-decoration-skip-ink:auto}img{max-width:100%;display:block}article>*+*{margin-top:1em}button,input,select,textarea{font:inherit}
+
+body {
+	font-family: sans-serif;
+	font-size: 18px;
+	color: #000;
+	background-color: #fff;
+}
+
+#wrapper {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.header {
+	width: 100%;
+	padding: 10px;
+	text-align: center;
+	border-bottom: 1px solid #000;
+}
+
+.page {
+	width: 100%;
+	flex: 1 1 auto;
+}
+.test {
+	max-width: 500px;
+	padding: 10px;
+	border: 1px solid green;
+	border-radius: 15px;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+.test__content {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 15px;
+}
+.test__question {
+	font-size: 20px;
+	border-bottom: 1px solid green;
+}
+.test__answers {
+	font-size: 20px;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 10px;
+}
+.test__answers li {
+	display: flex;
+	width: 100%;
+	font-size: 18px;
+	margin: 0;
+	padding: 0 0 0 25px;
+	position: relative;
+}
+
+
+.test__answers[data-type="text"] li {
+	padding: 0;
+}
+.test__answers[data-type="text"] li input {
+	width: 100%;
+	border: 1px solid #000;
+	outline: none;
+	border-radius: 5px;
+	color: #000;
+	font-family: sans-serif;
+	padding: 10px;
+	transition: border 0.3s ease-in-out;
+}
+.test__answers[data-type="text"] li input:focus {
+	border: 1px solid green;
+}
+.test__answers[data-type="number"] li {
+	padding: 0;
+}
+.test__answers[data-type="number"] li input {
+	width: 100%;
+	border: 1px solid #000;
+	outline: none;
+	border-radius: 5px;
+	color: #000;
+	font-family: sans-serif;
+	padding: 10px;
+	transition: border 0.3s ease-in-out;
+}
+.test__answers[data-type="number"] li input:focus {
+	border: 1px solid green;
+}
+.test__answers[data-type="radio"] li input {
+	display: none;
+}
+.test__answers[data-type="checkbox"] li input {
+	display: none;
+}
+.test__answers[data-type="select"] li {
+	padding: 0;
+}
+.test__answers[data-type="select"] li select {
+	width: 100%;
+	border: 1px solid #000;
+	outline: none;
+	border-radius: 5px;
+	color: #000;
+	font-family: sans-serif;
+	padding: 10px;
+	transition: border 0.3s ease-in-out;
+	cursor: pointer;
+}
+.test__answers[data-type="number"] li select:focus {
+	border: 1px solid green;
+}
+
+.test__answers li label {
+	/* position: relative; */
+	width: 100%;
+	user-select: none;
+	cursor: pointer;
+}
+
+.test__answers li label::before {
+	content: '';
+	position: absolute;
+	top: 4px;
+	left: 0;
+	width: 18px;
+	height: 18px;
+	border-radius: 100%;
+	background-color: #fff;
+	border: 2px solid green;
+}
+.test__answers li label::after {
+	content: '';
+	position: absolute;
+	top: 4px;
+	left: 0;
+	width: 18px;
+	height: 18px;
+	border-radius: 100%;
+	background-color: green;
+	transform: scale(0);
+	transition: transform 0.2s ease-in-out;
+}
+.test__answers li input:checked+label::after {
+	transform: scale(1);
+}
+/* radio */
+.test__answers[data-type="radio"] li label::before {
+	border-radius: 100%;
+}
+.test__answers[data-type="radio"] li label::after {
+	border-radius: 100%;
+}
+/* checkbox */
+.test__answers[data-type="checkbox"] li label::before {
+	border-radius: 3px;
+}
+.test__answers[data-type="checkbox"] li label::after {
+	border-radius: 3px;
+}
+
+.test__btn {
+	border: none;
+	outline: none;
+	width: 100px;
+	height: 48px;
+	background-color: transparent;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: 0.3s ease-in-out;
+	transition-property: background-color color;
+}
+.test__btn.next {
+	background-color: lightgreen;
+}
+.test__btn.next:hover {
+	background-color: green;
+	color: #fff;
+}
+
+.test__btn.again {
+	background-color: palevioletred;
+	color: #fff;
+}
+.test__btn.again:hover {
+	background-color: red;
+	color: #fff;
+}
